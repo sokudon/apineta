@@ -58,5 +58,89 @@ namespace api_neta.Properties {
                 this["time"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\r\n21\t徳川まつり")]
+        public string idol {
+            get {
+                return ((string)(this["idol"]));
+            }
+            set {
+                this["idol"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("----")]
+        public string timeset {
+            get {
+                return ((string)(this["timeset"]));
+            }
+            set {
+                this["timeset"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://api.matsurihi.me/mltd/v1/events/242/rankings/logs/idolPoint/21/100")]
+        public string url2 {
+            get {
+                return ((string)(this["url2"]));
+            }
+            set {
+                this["url2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://api.matsurihi.me/mltd/v1/events/290/rankings/logs/idolPoint/21/100")]
+        public string url3 {
+            get {
+                return ((string)(this["url3"]));
+            }
+            set {
+                this["url3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool genzai {
+            get {
+                return ((bool)(this["genzai"]));
+            }
+            set {
+                this["genzai"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string parse {
+            get {
+                return ((string)(this["parse"]));
+            }
+            set {
+                this["parse"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public string rank2 {
+            get {
+                return ((string)(this["rank2"]));
+            }
+            set {
+                this["rank2"] = value;
+            }
+        }
     }
 }

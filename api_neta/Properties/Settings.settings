@@ -11,5 +11,27 @@
     <Setting Name="time" Type="System.String" Scope="User">
       <Value Profile="(Default)">17:00</Value>
     </Setting>
+    <Setting Name="idol" Type="System.String" Scope="User">
+      <Value Profile="(Default)">
+21	徳川まつり</Value>
+    </Setting>
+    <Setting Name="timeset" Type="System.String" Scope="User">
+      <Value Profile="(Default)">----</Value>
+    </Setting>
+    <Setting Name="url2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://api.matsurihi.me/mltd/v1/events/242/rankings/logs/idolPoint/21/100</Value>
+    </Setting>
+    <Setting Name="url3" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://api.matsurihi.me/mltd/v1/events/290/rankings/logs/idolPoint/21/100</Value>
+    </Setting>
+    <Setting Name="genzai" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="parse" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="rank2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

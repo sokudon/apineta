@@ -34,6 +34,9 @@ namespace api_neta
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.周年イベントToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox1
@@ -61,8 +64,8 @@ namespace api_neta
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(731, 22);
             this.textBox2.TabIndex = 2;
-            this.textBox2.Text = "https://api.matsurihi.me/api/mltd/v2/events/290/rankings/eventPoint/logs/";
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.textBox2.Leave += new System.EventHandler(this.textBox2_Leave);
             // 
             // comboBox1
             // 
@@ -118,6 +121,24 @@ namespace api_neta
             this.comboBox2.Text = "100,2500,5000,10000,25000,50000";
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.周年イベントToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.TabIndex = 6;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // 周年イベントToolStripMenuItem
+            // 
+            this.周年イベントToolStripMenuItem.Name = "周年イベントToolStripMenuItem";
+            this.周年イベントToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
+            this.周年イベントToolStripMenuItem.Text = "周年イベント";
+            this.周年イベントToolStripMenuItem.Click += new System.EventHandler(this.周年イベントToolStripMenuItem_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -128,9 +149,13 @@ namespace api_neta
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,6 +168,8 @@ namespace api_neta
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 周年イベントToolStripMenuItem;
     }
 }
 
