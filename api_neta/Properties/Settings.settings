@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="api_neta.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="url" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://api.matsurihi.me/api/mltd/v2/events/290/rankings/eventPoint/logs/</Value>
+    </Setting>
+    <Setting Name="rank" Type="System.String" Scope="User">
+      <Value Profile="(Default)">100,2500,5000,10000,25000,50000</Value>
+    </Setting>
+    <Setting Name="time" Type="System.String" Scope="User">
+      <Value Profile="(Default)">17:00</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
