@@ -31,9 +31,9 @@ namespace api_neta
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.URL = new System.Windows.Forms.TextBox();
+            this.TIME = new System.Windows.Forms.ComboBox();
+            this.RANK = new System.Windows.Forms.ComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.周年イベントToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -58,20 +58,19 @@ namespace api_neta
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox2
+            // URL
             // 
-            this.textBox2.Location = new System.Drawing.Point(43, 29);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(731, 22);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            this.textBox2.Leave += new System.EventHandler(this.textBox2_Leave);
+            this.URL.Location = new System.Drawing.Point(43, 29);
+            this.URL.Name = "URL";
+            this.URL.Size = new System.Drawing.Size(731, 22);
+            this.URL.TabIndex = 2;
+            this.URL.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // comboBox1
+            // TIME
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.TIME.FormattingEnabled = true;
+            this.TIME.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.TIME.Items.AddRange(new object[] {
             "17:00",
             "00:00",
             "21:00",
@@ -100,26 +99,26 @@ namespace api_neta
             "21:00",
             "22:00",
             "23:00"});
-            this.comboBox1.Location = new System.Drawing.Point(43, 66);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 3;
-            this.comboBox1.Text = "17:00";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.TIME.Location = new System.Drawing.Point(43, 66);
+            this.TIME.Name = "TIME";
+            this.TIME.Size = new System.Drawing.Size(121, 23);
+            this.TIME.TabIndex = 3;
+            this.TIME.Text = "17:00";
+            this.TIME.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // comboBox2
+            // RANK
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.RANK.FormattingEnabled = true;
+            this.RANK.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.RANK.Items.AddRange(new object[] {
             "100,2500,5000,10000,25000,50000 ",
             "100,2500,5000,10000"});
-            this.comboBox2.Location = new System.Drawing.Point(179, 66);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(284, 23);
-            this.comboBox2.TabIndex = 5;
-            this.comboBox2.Text = "100,2500,5000,10000,25000,50000";
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.RANK.Location = new System.Drawing.Point(179, 66);
+            this.RANK.Name = "RANK";
+            this.RANK.Size = new System.Drawing.Size(284, 23);
+            this.RANK.TabIndex = 5;
+            this.RANK.Text = "100,2500,5000,10000,25000,50000";
+            this.RANK.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // menuStrip1
             // 
@@ -144,9 +143,9 @@ namespace api_neta
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 317);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.RANK);
+            this.Controls.Add(this.TIME);
+            this.Controls.Add(this.URL);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.menuStrip1);
@@ -165,9 +164,9 @@ namespace api_neta
 
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox URL;
+        private System.Windows.Forms.ComboBox TIME;
+        private System.Windows.Forms.ComboBox RANK;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 周年イベントToolStripMenuItem;
     }

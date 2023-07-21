@@ -19,8 +19,7 @@ namespace api_neta
         {
             InitializeComponent();
         }
-
-    
+   
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -30,7 +29,7 @@ namespace api_neta
 
             string s = ",";
             char c = s[0];
-            rank = comboBox2.Text.Split(c);
+            rank = RANK.Text.Split(c);
 
             StringBuilder sb = new StringBuilder();
             for (var i = 0; i < rank.Length; i++) { 
@@ -39,9 +38,9 @@ namespace api_neta
             wc.Encoding = Encoding.UTF8;
             DateTime dt = DateTime.Now;
 
-            string url = textBox2.Text + rank[i];
+            string url = URL.Text + rank[i];
 
-            string timeset = comboBox1.Text;
+            string timeset = TIME.Text;
             string text = "";
 
           
@@ -96,7 +95,7 @@ namespace api_neta
                 sb.Append(finaldata.Replace("T", " ").Replace("-", "/") + "\r\n");
             }
 
-            Properties.Settings.Default.url = textBox2.Text;
+            Properties.Settings.Default.url = URL.Text;
             textBox1.Text = sb.ToString();
 
         }
@@ -104,6 +103,7 @@ namespace api_neta
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
+            Properties.Settings.Default.url = URL.Text;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -114,26 +114,22 @@ namespace api_neta
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            this.textBox2.Text = Properties.Settings.Default.url;
-            this.comboBox2.Text=Properties.Settings.Default.rank ;
-            this.comboBox1.Text=Properties.Settings.Default.time ;
+            this.URL.Text = Properties.Settings.Default.url;
+            this.RANK.Text=Properties.Settings.Default.rank ;
+            this.TIME.Text=Properties.Settings.Default.time ;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            Properties.Settings.Default.time = comboBox1.Text;
+            Properties.Settings.Default.time = TIME.Text;
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.rank = comboBox2.Text;
+            Properties.Settings.Default.rank = RANK.Text;
         }
 
-        private void textBox2_Leave(object sender, EventArgs e)
-        {
-
-        }
 
 
         private void 周年イベントToolStripMenuItem_Click_1(object sender, EventArgs e)

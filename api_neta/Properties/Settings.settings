@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="url" Type="System.String" Scope="User">
-      <Value Profile="(Default)">https://api.matsurihi.me/api/mltd/v2/events/290/rankings/eventPoint/logs/</Value>
+      <Value Profile="(Default)">https://api.matsurihi.me/api/mltd/v2/events/292/rankings/eventPoint/logs/</Value>
     </Setting>
     <Setting Name="rank" Type="System.String" Scope="User">
       <Value Profile="(Default)">100,2500,5000,10000,25000,50000</Value>
@@ -26,9 +26,6 @@
     </Setting>
     <Setting Name="genzai" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="parse" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="rank2" Type="System.String" Scope="User">
       <Value Profile="(Default)">100</Value>

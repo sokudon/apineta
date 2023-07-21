@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<!-- saved from url=(0079)https://ss1.xrea.com/sokudon.s17.xrea.com/neta/Highstock%20compare_elapsed.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="./Highstock compare_files/tbl.css" type="text/css" rel="stylesheet">
+<title>Highstock compare</title>
+<script type="text/javascript" src="./Highstock compare_files/moment-with-locales.js"></script>
+<script type="text/javascript" src="./Highstock compare_files/jquery.min.js"></script>
+
+<script type="text/javascript" src="./d1.js"></script>
+<script type="text/javascript" src="./d2.js"></script>
+
+<script src="./Highstock compare_files/cgss_highstock_cmp2.js"></script>
+<script src="./Highstock compare_files/cgss_high_title.js"></script>
+<script src="./Highstock compare_files/highstockv8keika.js"></script>
+<script src="./Highstock compare_files/exporting.js"></script>
+<script src="./Highstock compare_files/export-data.srckeika.js"></script>
+<style type="text/css">
+${demo.css}
+</style>
+<script type="text/javascript">
+<!--
+var bs="2023-06-30T00:00:00+09:00";
+var cs="2021-06-30T00:00:00+09:00";
+
+var ibe_kaishi	=moment(bs).utc();//いべんと開始日時 月-1
+var ibe_end		=moment(bs).utc().add(13, 'days');;//いべんと終了日時 月-1
+var ibe_owari=ibe_end - ibe_kaishi+Date.UTC(2014,0,1,0,0)-timezone;
+
+ibekaishi= ibe_kaishi;
+ibeowari=ibe_owari;
+
+function pendendtime(){
+//if(ibeowari=="" || ibeowari=="--"){
+//pendend="<br>※終了時未定のためイベント時間および達成率は非表示です";
+//}
+return;
+}
+
+
+var timediff = moment(ibe_kaishi);//csv出力
+var outputdt=[
+//localtime,elasted time https://www.atmarkit.co.jp/fdotnet/vb6tonet/vb6tonet05/vb6tonet05_01.html
+//https://ja.wikipedia.org/wiki/%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E6%99%82%E5%88%BB
+moment("1899/12/30 00:00"),//null dummy
+moment("0001/01/01 12:00"), //vbnet C# PowerShell
+moment("1899/12/30 00:00"), //vb6,googlesp
+moment("1970-01-01 00:00"), //js,epoc
+moment("2014-01-01 00:00"), //sokudon
+moment("1970-01-01 00:00"), //js,epoc excel
+moment("1970-01-01 00:00"), //js,epoc
+moment(ibekaishi),//null dummy
+moment(ibekaishi),  //2020-02-29T12:00:00+09:00 realtime
+moment(ibekaishi),  //2020-02-29T12:00:00+09:00 realtime
+moment(ibekaishi),  //2020-02-29T12:00:00+09:00 realtime
+moment(ibekaishi),  //2020-02-29T12:00:00+09:00 realtime
+moment(ibekaishi),  //2020-02-29T12:00:00+09:00 realtime
+moment(ibekaishi)];  //2020-02-29T12:00:00+09:00 realtime
+
+var seltxt="イベント開始りある時間(現地) realtime";
+/*
+<option>--経過時間で出力--</option>
+<option>0001/01/01 12:00:00 VB.NET</option>
+<option>1899/12/30 00:00:00 VB6,M$エクセル、googleスプレッドシート</option>
+<option>1899/12/30 00:00:00 シリアル値VB6,M$エクセル、googleスプレッドシート</option>
+<option>1970-01-01 00:00:00 JS,エポック秒</option>
+<option>2014-01-01 00:00:00 sokudon</option>
+<option>0～ エポック秒</option>
+<option>--イベント時間で出力(現イベ基準)--</option>
+<option selected="selected">イベント開始りある時間(現地) realtime</option>
+<option>イベント開始りある時間 toString()英語表記？</option>
+<option>イベント開始りある時間 エクセルシリアル値</option>
+<option>イベント開始りある時間ISO8601 realtime</option>
+<option>イベント開始りある時間ISO8601 unixtime</option>
+<option>イベント開始りある時間 エポック秒</option>
+</select>
+*/
+
+
+
+var name="あいどるぼだひかく";
+
+var base=convertjson(data,bn,bs);
+var compare=convertjson(bd,cn,cs);
+
+
+var border=[];
+for(var i=0;i<base.length;i++){
+border[i]=new Array();
+border[i]['name'] = base[i]['name'];
+border[i]["data"] = base[i]['data'];
+}
+
+var events;
+var ranking=get_web_para("");
+var border_data=datafilter(utc_adjust(border.concat(compare)),ranking);
+border_data=eventfilter(border_data,events)
+//convert_left_time(border_data);
+
+
+function escapeHTML(html) {
+  return jQuery('<div>').text(html).html();
+}
+
+function url(){
+var url=document.location.href;
+var n = url.indexOf("#");
+if (n > -1) {
+url= url.substring(0,n);
+}
+var s="";
+var reg="";
+var cc=Highcharts.charts[0];
+for(var i=0;i<cc.series.length;i++){
+if(cc.series[i].visible){
+if(cc.series[i].name.match(/\d+位/)){
+reg +="^"
+}
+reg +=cc.series[i].name +"|";
+}
+}
+s = "%28"+encodeURIComponent(reg.replace(/\|$/,""))+"%29";
+document.location.href=url+"#," +s;
+
+return;
+}
+
+function get_web_para(s){
+var url=document.location.href;
+
+var n = url.indexOf("#");
+if (n > -1) {
+s = url.substring(n+1,url.length);
+url= url.substring(0,n);
+var nn=s.split(",");
+if(nn.length>=2){
+s=nn[0];
+events=decodeURIComponent(decodeURIComponent(nn[1]));
+}
+}
+s=escapeHTML(decodeURIComponent(s));
+return s;
+}
+
+function eventfilter(bd,s){
+
+var reg = new RegExp(s);
+
+for(var i=0;i<bd.length;i++){
+if(bd[i]['name'].match(reg)==null){
+bd[i].visible =false;
+}}
+		//diff=1;
+return bd
+}
+
+function convertjson(bd,name,st){
+
+var data=[];
+for(var i=0;i<bd.length;i++){
+data[i]={};
+data[i].name=name+bd[i].rank+"位";
+data[i].data=[];
+for(var k=0;k<bd[i].data.length;k++){
+data[i].data[k]=[];
+data[i].data[k][0]=moment(moment(bd[i].data[k].summaryTime)-moment(st)).valueOf()+1388502000000;
+data[i].data[k][1]=bd[i].data[k].score;
+
+}
+}
+return data;
+}
+
+
+-->
+</script>
+
+<script type="text/javascript" charset="UTF-8" src="./Highstock compare_files/xrea_header.js" async="async"></script>
+</head>
+<body>
+<div data-highcharts-chart="0" id="container"></div>
+<div id="tbl"></div>
+<button id="all" class="autocompare">すべて</button>
+<form name="seek" style="display: inline">
+<input type="text" id="seek_n" value="/100位/">
+</form>
+<button id="md" class="autocompare">けんさく(/～/でせいきひょうげん)</button>
+<br><br>
+<button id="DMS">DHM(日時分)で表示</button>
+<button id="MS">HM(時分)で表示</button>
+<button id="RM">イベント時間で表示</button>
+<button id="PER">進行度（%）で表示(現イベ基準)</button>
+
+<form name="trg">
+<b>CSV時刻出力設定※イベント時間で表示時のみ、残り時間はDHMかHMでおｋ（）</b><br>
+<select name="time" onchange="csvOutputChanged();">
+<option>--経過時間で出力--</option>
+<option>0001/01/01 12:00:00 VB.NET</option>
+<option>1899/12/30 00:00:00 VB6,M$エクセル、googleスプレッドシート</option>
+<option>1970-01-01 00:00:00 JS,エポック秒</option>
+<option>2014-01-01 00:00:00 sokudon</option>
+<option>0～ シリアル値M$エクセル、googleスプレッドシート</option>
+<option>0～ utcエポック秒</option>
+<option>--イベント時間で出力(現イベ基準--</option>
+<option selected="selected">イベント開始りある時間(現地) realtime</option>
+<option>イベント開始りある時間 toString()英語表記？</option>
+<option>イベント開始りある時間 エクセルシリアル値</option>
+<option>イベント開始りある時間ISO8601 realtime</option>
+<option>イベント開始りある時間ISO8601 unixtime,utc</option>
+<option>イベント開始りある時間 utcエポック秒</option>
+</select>
+</form>
+
+<br>
+<input type="Submit" value="URLで状態をほぞん" generate"="" onclick="url();return false">
+
+</body></html>
