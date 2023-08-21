@@ -60,9 +60,25 @@ namespace api_neta
 
             var json = Codeplex.Data.DynamicJson.Parse(text);
 
+
+            
             var j = json[0];
             int[] arr = j.data;
             int length = arr.Length - 1;
+
+                if (oldtime.Text == "----") { 
+                
+                }
+                else
+                {
+                    length = length - 48 * Convert.ToInt32(oldtime.Text);
+                    if (length < 0)
+                    {
+                        textBox1.Text = sb.ToString() + "\r\n\r\n"+rank[i]+"位はこれより前の日の探せるデータが存在してません。";
+                        return;
+                    }
+
+                }
             double finaldatas = 0;
 
                 if (timeset != "----")
@@ -114,9 +130,9 @@ namespace api_neta
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            this.URL.Text = Properties.Settings.Default.url;
-            this.RANK.Text=Properties.Settings.Default.rank ;
-            this.TIME.Text=Properties.Settings.Default.time ;
+           URL.Text = Properties.Settings.Default.url;
+           RANK.Text=Properties.Settings.Default.rank ;
+           TIME.Text=Properties.Settings.Default.time ;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -136,6 +152,14 @@ namespace api_neta
         {
             Form2 form2 = new Form2();
             form2.ShowDialog();
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            Properties.Settings.Default.url = this.URL.Text;
+            Properties.Settings.Default.rank = this.RANK.Text;
+            Properties.Settings.Default.time = this.TIME.Text;
         }
     }
 }
