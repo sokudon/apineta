@@ -49,6 +49,7 @@ namespace api_neta
             this.NOWONLY = new System.Windows.Forms.CheckBox();
             this.TIME = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // IDOL
@@ -240,12 +241,12 @@ namespace api_neta
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(79, 298);
+            this.linkLabel1.Location = new System.Drawing.Point(24, 298);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(410, 15);
+            this.linkLabel1.Size = new System.Drawing.Size(490, 15);
             this.linkLabel1.TabIndex = 15;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "grafu.zipを展開して exeとおなじパスにHighsrokなんらをおいてください\r\n";
+            this.linkLabel1.Text = "グラフ生成、grafu.zipを展開して exeとおなじパスにHighstockなんらをおいてください\r\n";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // label8
@@ -335,11 +336,21 @@ namespace api_neta
             this.label10.TabIndex = 21;
             this.label10.Text = "時間指定";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(309, 269);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(205, 15);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "全員分の特定時刻の一覧でーた:";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(705, 329);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.TIME);
             this.Controls.Add(this.NOWONLY);
@@ -390,5 +401,6 @@ namespace api_neta
         private System.Windows.Forms.CheckBox NOWONLY;
         private System.Windows.Forms.ComboBox TIME;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
     }
 }

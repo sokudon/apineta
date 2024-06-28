@@ -19,7 +19,7 @@
       <Value Profile="(Default)">----</Value>
     </Setting>
     <Setting Name="url2" Type="System.String" Scope="User">
-      <Value Profile="(Default)">https://api.matsurihi.me/mltd/v1/events/242/rankings/logs/idolPoint/21/100</Value>
+      <Value Profile="(Default)">https://api.matsurihi.me/mltd/v1/events/241/rankings/logs/idolPoint/21/100</Value>
     </Setting>
     <Setting Name="url3" Type="System.String" Scope="User">
       <Value Profile="(Default)">https://api.matsurihi.me/mltd/v1/events/290/rankings/logs/idolPoint/21/100</Value>
@@ -29,6 +29,9 @@
     </Setting>
     <Setting Name="rank2" Type="System.String" Scope="User">
       <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="buiddate" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2024/06/28 16:29</Value>
     </Setting>
   </Settings>
 </SettingsFile>

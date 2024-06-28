@@ -217,7 +217,7 @@ namespace api_neta
             url = Regex.Replace(url, "\\/\\d?\\d\\/", "/" + idol + "/");
             url2 = Regex.Replace(url2, "\\/\\d?\\d\\/", "/" + idol + "/");
 
-            string idolname = Regex.Replace(IDOL.Text, "\\d+[ 　\\t]", "");
+            string idolname = Regex.Replace(IDOL.Text, "\\d+[ 　\\t]", "").Trim();
 
 
             if (url2.IndexOf("eventPoint") > 0)
@@ -275,7 +275,7 @@ namespace api_neta
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
-            System.Diagnostics.Process.Start("https://github.com/sokudon/netataimaC-/tree/master/bin/Release");
+            System.Diagnostics.Process.Start("https://github.com/sokudon/apineta/tree/master/api_neta/bin/Release");
         }
 
         private void button3_Click(object sender, EventArgs e)

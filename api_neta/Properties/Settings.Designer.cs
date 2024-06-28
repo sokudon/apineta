@@ -12,7 +12,7 @@ namespace api_neta.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.10.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -85,7 +85,7 @@ namespace api_neta.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://api.matsurihi.me/mltd/v1/events/242/rankings/logs/idolPoint/21/100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://api.matsurihi.me/mltd/v1/events/241/rankings/logs/idolPoint/21/100")]
         public string url2 {
             get {
                 return ((string)(this["url2"]));
@@ -128,6 +128,18 @@ namespace api_neta.Properties {
             }
             set {
                 this["rank2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2024/06/28 16:29")]
+        public string buiddate {
+            get {
+                return ((string)(this["buiddate"]));
+            }
+            set {
+                this["buiddate"] = value;
             }
         }
     }
