@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="url" Type="System.String" Scope="User">
-      <Value Profile="(Default)">https://api.matsurihi.me/api/mltd/v2/events/296/rankings/eventPoint/logs/</Value>
+      <Value Profile="(Default)">https://api.matsurihi.me/api/mltd/v2/events/339/rankings/eventPoint/logs/</Value>
     </Setting>
     <Setting Name="rank" Type="System.String" Scope="User">
       <Value Profile="(Default)">100,2500,5000,10000,25000,50000</Value>
@@ -19,10 +19,10 @@
       <Value Profile="(Default)">----</Value>
     </Setting>
     <Setting Name="url2" Type="System.String" Scope="User">
-      <Value Profile="(Default)">https://api.matsurihi.me/mltd/v1/events/241/rankings/logs/idolPoint/21/100</Value>
+      <Value Profile="(Default)">https://api.matsurihi.me/mltd/v1/events/290/rankings/logs/idolPoint/21/100</Value>
     </Setting>
     <Setting Name="url3" Type="System.String" Scope="User">
-      <Value Profile="(Default)">https://api.matsurihi.me/mltd/v1/events/290/rankings/logs/idolPoint/21/100</Value>
+      <Value Profile="(Default)">https://api.matsurihi.me/mltd/v1/events/339/rankings/logs/idolPoint/21/100</Value>
     </Setting>
     <Setting Name="genzai" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -31,7 +31,7 @@
       <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="buiddate" Type="System.String" Scope="User">
-      <Value Profile="(Default)">2024/06/28 16:29</Value>
+      <Value Profile="(Default)">2024/06/30 10:43</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -25,7 +25,7 @@ namespace api_neta.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://api.matsurihi.me/api/mltd/v2/events/296/rankings/eventPoint/logs/")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://api.matsurihi.me/api/mltd/v2/events/339/rankings/eventPoint/logs/")]
         public string url {
             get {
                 return ((string)(this["url"]));
@@ -85,7 +85,7 @@ namespace api_neta.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://api.matsurihi.me/mltd/v1/events/241/rankings/logs/idolPoint/21/100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://api.matsurihi.me/mltd/v1/events/290/rankings/logs/idolPoint/21/100")]
         public string url2 {
             get {
                 return ((string)(this["url2"]));
@@ -97,7 +97,7 @@ namespace api_neta.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://api.matsurihi.me/mltd/v1/events/290/rankings/logs/idolPoint/21/100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://api.matsurihi.me/mltd/v1/events/339/rankings/logs/idolPoint/21/100")]
         public string url3 {
             get {
                 return ((string)(this["url3"]));
@@ -133,7 +133,7 @@ namespace api_neta.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2024/06/28 16:29")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2024/06/30 10:43")]
         public string buiddate {
             get {
                 return ((string)(this["buiddate"]));
