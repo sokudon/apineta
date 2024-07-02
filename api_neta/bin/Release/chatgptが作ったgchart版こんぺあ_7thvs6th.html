@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Google Charts Example</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript" src="./Highstock compare_files/moment-with-locales.js"></script>
+	<script type="text/javascript" src="./Highstock compare_files/jquery.min.js"></script>
+	<script type="text/javascript" src="./d1.js"></script>
+	<script type="text/javascript" src="./d2.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart', 'table']});
+      google.charts.setOnLoadCallback(drawChart);
+      
+      var bs="2024-06-30T00:00:00+09:00";//7th
+	  var cs="2023-06-30T00:00:00+09:00";//6th
+	  var rank=1000;
+	  var bbd=data;
+	  
+	  var event="7th";
+	  var eventcmp="6th";
+	  var score=rank+"位pt";
+	  var tit=bn+"ランク別比較グラフgchart版";
+
+
+  	function makehighchart(rank,dd,timealign){
+  	var hbd=[];
+  	var bds=[];
+  	
+  	for(var i=0;i<dd.length;i++){
+  	if(dd[i].rank==rank){
+  	hbd=dd[i];
+  	}}
+  	if(hbd.data.length===0){	
+  	bds[0]=[];
+  	bds[0][0]=new Date(moment(bs).valueOf()+timealign);
+  	bds[0][1]=0;
+  	return bds;
+  	}
+  	for(var i=0;i<hbd.data.length;i++){
+  	bds[i]=[];
+  	bds[i][0]=new Date(moment(hbd.data[i].summaryTime).valueOf()+timealign);
+  	bds[i][1]=hbd.data[i].score;
+  	}
+  	return bds;
+  	}
+  	
+
+
+      function drawChart() {
+      
+      
+		var tz=document.rank.HM.options[document.rank.HM.selectedIndex].text;
+		rank=tz;
+		 score=rank+"位pt";
+        // 高chartsデータを統合して共通の時間軸を作成
+        var tokyoData = makehighchart(rank,bbd,0);
+        var newYorkData = makehighchart(rank,bd,moment(moment(bs)-moment(cs)).valueOf());
+
+
+        // 共通の時間軸を作成
+        var commonDates = [...new Set([...tokyoData.map(d => d[0].getTime()), ...newYorkData.map(d => d[0].getTime())])];
+        commonDates.sort((a, b) => a - b);
+
+        // 共通の時間軸に基づいてデータを整列
+        var dataTable = [['Date', event, eventcmp]];
+        commonDates.forEach(date => {
+          var tokyoValue = tokyoData.find(d => d[0].getTime() === date);
+          var newYorkValue = newYorkData.find(d => d[0].getTime() === date);
+          dataTable.push([
+            new Date(date),
+            tokyoValue ? tokyoValue[1] : null,
+            newYorkValue ? newYorkValue[1] : null
+          ]);
+        });
+
+        var data = google.visualization.arrayToDataTable(dataTable);
+        var options = {
+          title: tit,
+          hAxis: {
+            title: 'Date',
+            format: 'yyyy/MM/dd'
+          },
+          vAxis: {title: score}
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+ 		
+ 		
+ 		 // テーブルを作成
+        var tableData = new google.visualization.DataTable();
+        tableData.addColumn('string', 'Date');
+        tableData.addColumn('number', event);
+        tableData.addColumn('number', eventcmp);
+        for (var i = 0; i < data.getNumberOfRows(); i++) {
+          tableData.addRow([
+            formatDate(data.getValue(i, 0)),
+            data.getValue(i, 1),            
+            data.getValue(i, 2)
+          ]);
+        }
+        // テーブルを作成
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+         var tableOptions = {
+          showRowNumber: false,
+          width: '100%',
+          height: '100%',
+          sort: 'disable',
+          sortColumn: 0,
+          sortAscending: false,
+          page: 'enable',
+          startPage:0,
+          pageSize: 10,
+          pagingSymbols: { prev: '前', next: '次' }
+        };
+        table.draw(tableData,tableOptions);
+        
+       // Line Chartのクリックイベントをキャプチャ
+        google.visualization.events.addListener(chart, 'select', function() {
+          var selection = chart.getSelection();
+          if (selection.length > 0) {
+            var row = selection[0].row;
+            var tableRowIndex = findTableRowIndex(data.getValue(row, 0));
+            var pageIndex = Math.floor(tableRowIndex / 10);
+            tableOptions.startPage=pageIndex;
+        	table.draw(tableData,tableOptions);
+            table.setSelection([{row: tableRowIndex}]);
+          }
+        });
+
+        // Tableのクリックイベントをキャプチャ
+        google.visualization.events.addListener(table, 'select', function() {
+          var selection = table.getSelection();
+          if (selection.length > 0) {
+            var row = selection[0].row + table.getPage() * tableOptions.pageSize;
+            var chartRowIndex = findChartRowIndex(formatDateStringToDate(tableData.getValue(row, 0)));
+            chart.setSelection([{row: chartRowIndex}]);
+          }
+        });
+
+        // ページ変更イベントをキャプチャ
+        google.visualization.events.addListener(table, 'page', function() {
+          var selection = table.getSelection();
+          if (selection.length > 0) {
+            var row = selection[0].row + table.getPage() * tableOptions.pageSize;
+            var chartRowIndex = findChartRowIndex(formatDateStringToDate(tableData.getValue(row, 0)));
+            chart.setSelection([{row: chartRowIndex}]);
+          }
+        });
+
+        function formatDate(date) {
+          var year = date.getFullYear();
+          var month = ('0' + (date.getMonth() + 1)).slice(-2);
+          var day = ('0' + date.getDate()).slice(-2);
+          var hours = ('0' + date.getHours()).slice(-2);
+          var minutes = ('0' + date.getMinutes()).slice(-2);
+          return year + '/' + month + '/' + day + ' ' + hours + ':' + minutes;
+        }
+
+        function formatDateStringToDate(dateString) {
+          var parts = dateString.split(' ');
+          var dateParts = parts[0].split('/');
+          var timeParts = parts[1].split(':');
+          return new Date(dateParts[0], dateParts[1] - 1, dateParts[2], timeParts[0], timeParts[1]);
+        }
+
+        function findTableRowIndex(date) {
+          for (var i = 0; i < data.getNumberOfRows(); i++) {
+            if (data.getValue(i, 0).getTime() === date.getTime()) {
+              return i;
+            }
+          }
+          return -1;
+        }
+
+        function findChartRowIndex(date) {
+          for (var i = 0; i < data.getNumberOfRows(); i++) {
+            if (data.getValue(i, 0).getTime() === date.getTime()) {
+              return i;
+            }
+          }
+          return -1;
+        }
+
+        function createCustomHTMLContent(date, value) {
+          return '<div style="padding:5px 5px 5px 5px;">' +
+                   '<b>Date:</b> ' + formatDate(date) + '<br>' +
+                   '<b>Value:</b> ' + value + '</div>';
+        }
+      }
+      
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+    <div id="table_div" style="width: 900px; height: 500px;"></div>
+<form name="rank">
+<select name="HM" onchange="drawChart()">
+<option value="">1</option>
+<option value="">2</option>
+<option value="">3</option>
+<option value="">10</option>
+<option selected="selected" value="">100</option>
+<option value="">1000</option>
+</select>
+  </body>
+</html>
