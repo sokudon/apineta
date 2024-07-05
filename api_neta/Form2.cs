@@ -442,6 +442,7 @@ namespace api_neta
                 Thread.Sleep(500);
             }
             string str2 = sb.ToString();
+            str2 = Regex.Replace(str2, " ", "\t");
 
             File.WriteAllText(@"alldata" + RANK.Text + ".txt", str2);
         }
