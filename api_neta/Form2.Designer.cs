@@ -50,6 +50,8 @@ namespace api_neta
             this.TIME = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.zure2 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // IDOL
@@ -119,7 +121,7 @@ namespace api_neta
             // 
             this.URLPAST.Location = new System.Drawing.Point(56, 53);
             this.URLPAST.Name = "URLPAST";
-            this.URLPAST.Size = new System.Drawing.Size(614, 22);
+            this.URLPAST.Size = new System.Drawing.Size(637, 22);
             this.URLPAST.TabIndex = 2;
             this.URLPAST.Text = "https://api.matsurihi.me/mltd/v1/events/241/rankings/logs/idolPoint/21/100";
             this.URLPAST.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -128,7 +130,7 @@ namespace api_neta
             // 
             this.URLNOW.Location = new System.Drawing.Point(56, 81);
             this.URLNOW.Name = "URLNOW";
-            this.URLNOW.Size = new System.Drawing.Size(614, 22);
+            this.URLNOW.Size = new System.Drawing.Size(637, 22);
             this.URLNOW.TabIndex = 3;
             this.URLNOW.Text = "https://api.matsurihi.me/mltd/v1/events/290/rankings/logs/idolPoint/21/100";
             this.URLNOW.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
@@ -294,7 +296,7 @@ namespace api_neta
             this.TIME.Items.AddRange(new object[] {
             "----",
             "17:00",
-            "00:00",
+            "00:00:00",
             "01:00",
             "02:00",
             "03:00",
@@ -345,11 +347,89 @@ namespace api_neta
             this.label11.TabIndex = 22;
             this.label11.Text = "全員分の特定時刻の一覧でーた:";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(523, 132);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(93, 15);
+            this.label13.TabIndex = 25;
+            this.label13.Text = "去年検索ずれ";
+            // 
+            // zure2
+            // 
+            this.zure2.FormattingEnabled = true;
+            this.zure2.Items.AddRange(new object[] {
+            "-192",
+            "-144",
+            "-96",
+            "-48",
+            "-24",
+            "-23",
+            "-22",
+            "-21",
+            "-20",
+            "-19",
+            "-18",
+            "-17",
+            "-16",
+            "-15",
+            "-14",
+            "-13",
+            "-12",
+            "-11",
+            "-10",
+            "-9",
+            "-8",
+            "-7",
+            "-6",
+            "-5",
+            "-4",
+            "-3",
+            "-2",
+            "-1",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "48",
+            "96",
+            "144",
+            "192"});
+            this.zure2.Location = new System.Drawing.Point(622, 126);
+            this.zure2.Name = "zure2";
+            this.zure2.Size = new System.Drawing.Size(71, 23);
+            this.zure2.TabIndex = 26;
+            this.zure2.Text = "0";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(705, 329);
+            this.Controls.Add(this.zure2);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.TIME);
@@ -402,5 +482,7 @@ namespace api_neta
         private System.Windows.Forms.ComboBox TIME;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox zure2;
     }
 }

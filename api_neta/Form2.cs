@@ -89,7 +89,7 @@ namespace api_neta
             }
             var j = json[0];
             int[] arr = j.data;
-            int length = arr.Length - 1;
+            int length = arr.Length -1;//arr.Length - 1;
             var finaldata = "----";
             double finaldatas = 0;
             var timeset = TIME.Text;
@@ -135,15 +135,24 @@ namespace api_neta
                 {
                     var jsonlast = Codeplex.Data.DynamicJson.Parse(text);
                     var jj = jsonlast[0];
-                    length -= 3;
+                    int[] arr2 = jj.data;
+                    length -= Convert.ToInt32(zure2.Text);
+
+                    if (length <0)
+                    {
+                        length = 0;
+                    }
+                    if (length > arr2.Length - 1)
+                    {
+                        length = arr2.Length - 1;
+                    }
 
                     var ffinaldata = jj.data[length].summaryTime;
                     var ffinaldatas = jj.data[length].score;
 
                     if (timeset != "----")
                     {
-                        int[] arr2 = jj.data;
-                        int length2 = arr.Length - 1;
+                        int length2 = length;
 
                         for (var i = length2; i > 0; i--)
                         {

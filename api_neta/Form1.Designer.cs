@@ -78,10 +78,10 @@ namespace api_neta
             this.TIME.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TIME.Items.AddRange(new object[] {
             "17:00",
-            "00:00",
+            "00:00:00",
             "21:00",
             "----",
-            "00:00",
+            "00:00:00",
             "01:00",
             "02:00",
             "03:00",
