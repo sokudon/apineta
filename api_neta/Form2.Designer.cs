@@ -364,6 +364,7 @@ namespace api_neta
             // 
             this.zure2.FormattingEnabled = true;
             this.zure2.Items.AddRange(new object[] {
+            "全件(-624)",
             "-192",
             "-144",
             "-96",

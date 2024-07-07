@@ -110,9 +110,10 @@ namespace api_neta
                 {
                     var days = double.Parse(daydiff);
                     DateTime dateTimeFromTime = DateTime.Parse(dateset);
-                    datesetrg = dateTimeFromTime.ToString("MM-ddT");
+                    dateTimeFromTime = dateTimeFromTime.AddHours(9);
+                    datesetrg = dateTimeFromTime.ToUniversalTime().ToString("MM-ddT");
                     dateTimeFromTime=dateTimeFromTime.AddDays(days);
-                    datesetkyonenrg = dateTimeFromTime.ToString("MM-ddT");
+                    datesetkyonenrg = dateTimeFromTime.ToUniversalTime().ToString("MM-ddT");
 
                 }
             }
@@ -120,6 +121,19 @@ namespace api_neta
                 datesetrg = "";
                 datesetkyonenrg = "";
 
+            }
+
+            if (timeset == "----")
+            {
+                if (length > 0)
+                {
+                    var lasttime = j.data[length].summaryTime;
+                    Match m = Regex.Match(lasttime, "\\d\\d:\\d\\d:\\d\\d");
+                    if (m.Success)
+                    {
+                        timeset = m.Value.ToString();
+                    }
+                }
             }
 
             string pattern = datesetrg + timeset;
@@ -166,7 +180,12 @@ namespace api_neta
                     var jsonlast = Codeplex.Data.DynamicJson.Parse(text);
                     var jj = jsonlast[0];
                     int[] arr2 = jj.data;
-                    length -= Convert.ToInt32(zure2.Text);
+                    var serchindex = zure2.Text;
+                    if (serchindex == "全件(-624)") {
+                        serchindex = "-624";
+                    }
+
+                    length -= Convert.ToInt32(serchindex);
 
                     if (length <0)
                     {
