@@ -150,7 +150,7 @@ namespace api_neta
 
         private void 周年イベントToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
+            date form2 = new date();
             form2.ShowDialog();
         }
 

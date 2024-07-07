@@ -1,7 +1,7 @@
 ﻿
 namespace api_neta
 {
-    partial class Form2
+    partial class date
     {
         /// <summary>
         /// Required designer variable.
@@ -52,6 +52,10 @@ namespace api_neta
             this.label11 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.zure2 = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.dates = new System.Windows.Forms.ComboBox();
+            this.datediff = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // IDOL
@@ -423,11 +427,72 @@ namespace api_neta
             this.zure2.TabIndex = 26;
             this.zure2.Text = "0";
             // 
-            // Form2
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(541, 157);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(67, 15);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "日付指定";
+            // 
+            // dates
+            // 
+            this.dates.FormattingEnabled = true;
+            this.dates.Items.AddRange(new object[] {
+            "----",
+            "06/29",
+            "06/30",
+            "07/01",
+            "07/02",
+            "07/03",
+            "07/04",
+            "07/05",
+            "07/06",
+            "07/07",
+            "07/08",
+            "07/09",
+            "07/10",
+            "07/11",
+            "07/12",
+            "07/13"});
+            this.dates.Location = new System.Drawing.Point(622, 154);
+            this.dates.Name = "dates";
+            this.dates.Size = new System.Drawing.Size(71, 23);
+            this.dates.TabIndex = 28;
+            this.dates.Text = "----";
+            // 
+            // datediff
+            // 
+            this.datediff.FormattingEnabled = true;
+            this.datediff.Items.AddRange(new object[] {
+            "----",
+            "-1",
+            "1"});
+            this.datediff.Location = new System.Drawing.Point(622, 183);
+            this.datediff.Name = "datediff";
+            this.datediff.Size = new System.Drawing.Size(71, 23);
+            this.datediff.TabIndex = 29;
+            this.datediff.Text = "----";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(526, 186);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(90, 15);
+            this.label14.TabIndex = 30;
+            this.label14.Text = "去年日付ズレ";
+            // 
+            // date
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(705, 329);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.datediff);
+            this.Controls.Add(this.dates);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.zure2);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label11);
@@ -451,7 +516,7 @@ namespace api_neta
             this.Controls.Add(this.URLNOW);
             this.Controls.Add(this.URLPAST);
             this.Controls.Add(this.IDOL);
-            this.Name = "Form2";
+            this.Name = "date";
             this.Text = "周年イベント";
             this.Load += new System.EventHandler(this.Form5_Load);
             this.ResumeLayout(false);
@@ -484,5 +549,9 @@ namespace api_neta
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox zure2;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox dates;
+        private System.Windows.Forms.ComboBox datediff;
+        private System.Windows.Forms.Label label14;
     }
 }

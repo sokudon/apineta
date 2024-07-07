@@ -15,9 +15,9 @@ using System.Threading;
 
 namespace api_neta
 {
-    public partial class Form2 : Form
+    public partial class date : Form
     {
-        public Form2()
+        public date()
         {
             InitializeComponent();
         }
@@ -78,13 +78,14 @@ namespace api_neta
 
             var json = Codeplex.Data.DynamicJson.Parse(text2);
 
+            label3.Text = "--";
+            label4.Text = "--";
+            label5.Text = "";
+            label6.Text = "";
+            label7.Text = "";
+
             if (text2 == "[]")
             {
-                label3.Text = "--";
-                label4.Text = "--";
-                label5.Text = "";
-                label6.Text = "";
-                label7.Text = "";
                 return;
             }
             var j = json[0];
@@ -93,6 +94,36 @@ namespace api_neta
             var finaldata = "----";
             double finaldatas = 0;
             var timeset = TIME.Text;
+            var dateset = dates.Text;
+            var datesetkyonen = dates.Text;
+            var daydiff = datediff.Text;
+
+            var datesetrg="";
+            var datesetkyonenrg="";
+
+            if (dateset != "----")
+            {
+                datesetrg = dateset.Replace("/", "-") + "T";
+                datesetkyonenrg = datesetrg;
+
+                if (daydiff != "----")
+                {
+                    var days = double.Parse(daydiff);
+                    DateTime dateTimeFromTime = DateTime.Parse(dateset);
+                    datesetrg = dateTimeFromTime.ToString("MM-ddT");
+                    dateTimeFromTime=dateTimeFromTime.AddDays(days);
+                    datesetkyonenrg = dateTimeFromTime.ToString("MM-ddT");
+
+                }
+            }
+            else {
+                datesetrg = "";
+                datesetkyonenrg = "";
+
+            }
+
+            string pattern = datesetrg + timeset;
+            string patternkyonen = datesetkyonenrg + timeset;
 
             if (length < 0)
             {
@@ -112,7 +143,6 @@ namespace api_neta
                     for (var i = length; i > 0; i--)
                     {
                         var data = j.data[i].summaryTime;
-                        string pattern = timeset;
                         Match m = Regex.Match(data, pattern);
                         if (m.Success)
                         {
@@ -157,8 +187,7 @@ namespace api_neta
                         for (var i = length2; i > 0; i--)
                         {
                             var data = jj.data[i].summaryTime;
-                            string pattern = timeset;
-                            Match m = Regex.Match(data, pattern);
+                            Match m = Regex.Match(data, patternkyonen);
                             if (m.Success)
                             {
 
