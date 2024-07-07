@@ -194,51 +194,51 @@ namespace api_neta
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(67, 176);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 15);
+            this.label3.Size = new System.Drawing.Size(79, 15);
             this.label3.TabIndex = 8;
-            this.label3.Text = "label3";
+            this.label3.Text = "今年の日時";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(70, 219);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 15);
+            this.label4.Size = new System.Drawing.Size(67, 15);
             this.label4.TabIndex = 9;
-            this.label4.Text = "label4";
+            this.label4.Text = "今年のPT";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(323, 175);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 15);
+            this.label5.Size = new System.Drawing.Size(79, 15);
             this.label5.TabIndex = 10;
-            this.label5.Text = "label5";
+            this.label5.Text = "去年の日時";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(323, 219);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 15);
+            this.label6.Size = new System.Drawing.Size(67, 15);
             this.label6.TabIndex = 11;
-            this.label6.Text = "label6";
+            this.label6.Text = "去年のPT";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(548, 219);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(43, 15);
+            this.label7.Size = new System.Drawing.Size(55, 15);
             this.label7.TabIndex = 12;
-            this.label7.Text = "label7";
+            this.label7.Text = "PT差分";
             // 
             // makegraph
             // 
-            this.makegraph.Location = new System.Drawing.Point(515, 294);
+            this.makegraph.Location = new System.Drawing.Point(560, 298);
             this.makegraph.Name = "makegraph";
-            this.makegraph.Size = new System.Drawing.Size(119, 23);
+            this.makegraph.Size = new System.Drawing.Size(133, 23);
             this.makegraph.TabIndex = 13;
             this.makegraph.Text = "cmp_highc生成";
             this.makegraph.UseVisualStyleBackColor = true;
@@ -247,7 +247,7 @@ namespace api_neta
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(24, 298);
+            this.linkLabel1.Location = new System.Drawing.Point(14, 298);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(490, 15);
             this.linkLabel1.TabIndex = 15;
@@ -275,7 +275,7 @@ namespace api_neta
             // 
             // allidol
             // 
-            this.allidol.Location = new System.Drawing.Point(515, 265);
+            this.allidol.Location = new System.Drawing.Point(560, 265);
             this.allidol.Name = "allidol";
             this.allidol.Size = new System.Drawing.Size(133, 23);
             this.allidol.TabIndex = 18;
@@ -345,7 +345,7 @@ namespace api_neta
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(309, 269);
+            this.label11.Location = new System.Drawing.Point(299, 269);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(205, 15);
             this.label11.TabIndex = 22;
@@ -427,6 +427,7 @@ namespace api_neta
             this.zure2.Size = new System.Drawing.Size(71, 23);
             this.zure2.TabIndex = 26;
             this.zure2.Text = "0";
+            this.zure2.SelectedIndexChanged += new System.EventHandler(this.zure2_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -462,6 +463,7 @@ namespace api_neta
             this.dates.Size = new System.Drawing.Size(71, 23);
             this.dates.TabIndex = 28;
             this.dates.Text = "----";
+            this.dates.SelectedIndexChanged += new System.EventHandler(this.dates_SelectedIndexChanged);
             // 
             // datediff
             // 
@@ -475,6 +477,7 @@ namespace api_neta
             this.datediff.Size = new System.Drawing.Size(71, 23);
             this.datediff.TabIndex = 29;
             this.datediff.Text = "----";
+            this.datediff.SelectedIndexChanged += new System.EventHandler(this.datediff_SelectedIndexChanged);
             // 
             // label14
             // 

@@ -1,0 +1,17 @@
+ぼだbotのＡＰＩつる					
+去年PT比較	https://github.com/sokudon/apineta/tree/master/api_neta/bin/Release	
+datasrc;ml_td_t,ml_idol
+
+使い方ボタン押すだけ		時間指定、最近の〇〇時がはいる
+
+周年のURLの数字
+7th /339/ranking/ ～
+6th /290/rankings/ ～
+4th /192/rankings/ ～
+5th /241/rankings/ ～
+
+https://docs.google.com/spreadsheets/d/1SgK1GlsVMrC6bg_XIPoCHPstYcJ2oTdWpaPZFCaVhJc/edit?gid=1606282883#gid=1606282883
+
+ハイストックチャート、グーグルチャート
+grafu.zipを展開して exeとおなじパスにhighstock-gchart なんとかをおいてください
+つるで取得したアイドルのd1.jsとd2.jsに対応したあいどるべつの 今年--去年 比較チャートが生成されます

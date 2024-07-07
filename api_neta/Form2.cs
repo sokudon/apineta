@@ -23,6 +23,20 @@ namespace api_neta
         }
 
 
+        private void Form5_Load(object sender, EventArgs e)
+        {
+            this.RANK.Text = Properties.Settings.Default.rank2;
+            this.IDOL.Text = Properties.Settings.Default.idol;
+            this.NOWONLY.Checked = Properties.Settings.Default.genzai;
+            this.URLPAST.Text = Properties.Settings.Default.url2;
+            this.URLNOW.Text = Properties.Settings.Default.url3;
+            this.TIME.Text = Properties.Settings.Default.timeset;
+            this.datediff.Text = Properties.Settings.Default.datediff;
+            this.dates.Text = Properties.Settings.Default.date;
+            this.zure2.Text = Properties.Settings.Default.zure;
+        }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -246,17 +260,6 @@ namespace api_neta
             Properties.Settings.Default.rank2 = this.RANK.Text;
         }
 
-        private void Form5_Load(object sender, EventArgs e)
-        {
-            this.RANK.Text = Properties.Settings.Default.rank2;
-            this.IDOL.Text = Properties.Settings.Default.idol;
-
-
-            this.NOWONLY.Checked = Properties.Settings.Default.genzai;
-            this.URLPAST.Text = Properties.Settings.Default.url2;
-            this.URLNOW.Text = Properties.Settings.Default.url3;
-            this.TIME.Text = Properties.Settings.Default.timeset;
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -324,6 +327,7 @@ namespace api_neta
 
             wc.Dispose();
             System.Diagnostics.Process.Start("Highstock compare.html");
+            System.Diagnostics.Process.Start("chatgptが作ったgchart版こんぺあ_7thvs6th.html");
 
 
 
@@ -533,6 +537,25 @@ namespace api_neta
         {
 
             Properties.Settings.Default.url2 = this.URLPAST.Text;
+        }
+
+        private void zure2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            Properties.Settings.Default.zure = this.zure2.Text;
+        }
+
+        private void dates_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+            Properties.Settings.Default.date = this.dates.Text;
+        }
+
+        private void datediff_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            Properties.Settings.Default.datediff = this.datediff.Text;
         }
     }
 }

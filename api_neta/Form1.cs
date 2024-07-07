@@ -129,8 +129,8 @@ namespace api_neta
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.Text = "api_neta buid:" + Properties.Settings.Default.buiddate;
-            URL.Text = Properties.Settings.Default.url;
+           this.Text = "api_neta buid:" + Properties.Settings.Default.buiddate;
+           URL.Text = Properties.Settings.Default.url;
            RANK.Text=Properties.Settings.Default.rank ;
            TIME.Text=Properties.Settings.Default.time ;
         }

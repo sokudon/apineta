@@ -133,13 +133,49 @@ namespace api_neta.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2024/07/07 23:37")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2024/07/08  1:46")]
         public string buiddate {
             get {
                 return ((string)(this["buiddate"]));
             }
             set {
                 this["buiddate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public string zure {
+            get {
+                return ((string)(this["zure"]));
+            }
+            set {
+                this["zure"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("----")]
+        public string date {
+            get {
+                return ((string)(this["date"]));
+            }
+            set {
+                this["date"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("----")]
+        public string datediff {
+            get {
+                return ((string)(this["datediff"]));
+            }
+            set {
+                this["datediff"] = value;
             }
         }
     }
