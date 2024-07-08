@@ -31,7 +31,7 @@
       <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="buiddate" Type="System.String" Scope="User">
-      <Value Profile="(Default)">2024/07/08  1:46</Value>
+      <Value Profile="(Default)">2024/07/09  1:45</Value>
     </Setting>
     <Setting Name="zure" Type="System.String" Scope="User">
       <Value Profile="(Default)">0</Value>
@@ -41,6 +41,9 @@
     </Setting>
     <Setting Name="datediff" Type="System.String" Scope="User">
       <Value Profile="(Default)">----</Value>
+    </Setting>
+    <Setting Name="usev2" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -133,7 +133,7 @@ namespace api_neta.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2024/07/08  1:46")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2024/07/09  1:45")]
         public string buiddate {
             get {
                 return ((string)(this["buiddate"]));
@@ -176,6 +176,18 @@ namespace api_neta.Properties {
             }
             set {
                 this["datediff"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool usev2 {
+            get {
+                return ((bool)(this["usev2"]));
+            }
+            set {
+                this["usev2"] = value;
             }
         }
     }

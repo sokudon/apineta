@@ -56,6 +56,7 @@ namespace api_neta
             this.dates = new System.Windows.Forms.ComboBox();
             this.datediff = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.v2api = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // IDOL
@@ -488,6 +489,17 @@ namespace api_neta
             this.label14.TabIndex = 30;
             this.label14.Text = "去年日付ズレ";
             // 
+            // v2api
+            // 
+            this.v2api.AutoSize = true;
+            this.v2api.Location = new System.Drawing.Point(465, 14);
+            this.v2api.Name = "v2api";
+            this.v2api.Size = new System.Drawing.Size(240, 19);
+            this.v2api.TabIndex = 19;
+            this.v2api.Text = "v2(ぐらふのみ,5minなので拡大推奨)";
+            this.v2api.UseVisualStyleBackColor = true;
+            this.v2api.CheckedChanged += new System.EventHandler(this.v2api_CheckedChanged);
+            // 
             // date
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -502,6 +514,7 @@ namespace api_neta
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.TIME);
+            this.Controls.Add(this.v2api);
             this.Controls.Add(this.NOWONLY);
             this.Controls.Add(this.allidol);
             this.Controls.Add(this.label9);
@@ -557,5 +570,6 @@ namespace api_neta
         private System.Windows.Forms.ComboBox dates;
         private System.Windows.Forms.ComboBox datediff;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.CheckBox v2api;
     }
 }

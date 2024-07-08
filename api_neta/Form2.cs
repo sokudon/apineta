@@ -12,6 +12,7 @@ using System.Net;
 using System.Text.RegularExpressions;
 
 using System.Threading;
+using System.Runtime.InteropServices;
 
 namespace api_neta
 {
@@ -22,6 +23,7 @@ namespace api_neta
             InitializeComponent();
         }
 
+        string prettyPrint = "?prettyPrint=false";
 
         private void Form5_Load(object sender, EventArgs e)
         {
@@ -34,6 +36,7 @@ namespace api_neta
             this.datediff.Text = Properties.Settings.Default.datediff;
             this.dates.Text = Properties.Settings.Default.date;
             this.zure2.Text = Properties.Settings.Default.zure;
+            this.v2api.Checked = Properties.Settings.Default.usev2;
         }
 
 
@@ -59,6 +62,10 @@ namespace api_neta
             URLPAST.Text = url;
 
             URLNOW.Text = url2;
+
+
+            url+=prettyPrint;
+            url2+= prettyPrint;
 
             string text = "";
             string text2 = "";
@@ -271,6 +278,7 @@ namespace api_neta
             string url = URLPAST.Text;
             string url2 = URLNOW.Text;
 
+
             string idol = (IDOL.SelectedIndex + 1).ToString();
             string rank = RANK.Text;
 
@@ -293,17 +301,29 @@ namespace api_neta
                 url2 = Regex.Replace(url2, "\\/\\d+$", "/1,2,3,10,100,1000");
             }
 
-            URLPAST.Text = url;
 
+            if (v2api.Checked)
+            {
+                url = convertapi(url);
+                url2 = convertapi(url2);
+            }
+
+            URLPAST.Text = url;
             URLNOW.Text = url2;
 
+            url += prettyPrint;
+            url2 += prettyPrint;
 
             string text = "";
             string text2 = "";
             try
             {
                 text = wc.DownloadString(url);
-                File.WriteAllText(@"d1.js", "var bn='後" + idolname + "';var bd=" + text);
+                if (v2api.Checked)
+                {
+                    text = Regex.Replace(text, "aggregatedAt", "summaryTime");
+                }
+                    File.WriteAllText(@"d1.js", "var bn='後" + idolname + "';var bd=" + text);
             }
             catch (WebException exc)
             {
@@ -315,7 +335,10 @@ namespace api_neta
 
             try
             {
-                text2 = wc.DownloadString(url2);
+                text2 = wc.DownloadString(url2); if (v2api.Checked)
+                {
+                    text2 = Regex.Replace(text2, "aggregatedAt", "summaryTime");
+                }
                 File.WriteAllText(@"d2.js", "var cn='前" + idolname + "'; var data=" + text2);
             }
             catch (WebException exc)
@@ -347,8 +370,8 @@ namespace api_neta
             wc.Encoding = Encoding.UTF8;
             DateTime dt = DateTime.Now;
 
-            string url = URLPAST.Text;
-            string url2 = URLNOW.Text;
+            string url = URLPAST.Text + prettyPrint;
+            string url2 = URLNOW.Text + prettyPrint;
 
             string idol = (IDOL.SelectedIndex + 1).ToString();
             string rank = RANK.Text;
@@ -556,6 +579,34 @@ namespace api_neta
         {
 
             Properties.Settings.Default.datediff = this.datediff.Text;
+        }
+
+    
+
+        private void v2api_CheckedChanged(object sender, EventArgs e)
+        {
+            if (v2api.Checked)
+            {
+                prettyPrint = "?prettyPrint=false&all=true";
+            }
+            else {
+                prettyPrint = "?prettyPrint=false";
+            }
+        }
+
+        static string convertapi(string originalUrl)
+        {
+            //コンバートv1->2 gpt生成() https://chatgpt.com/c/56af4c9f-621e-4fe4-87f3-db2091349324
+            // 正規表現パターンを定義します。
+            string pattern = @"(https://api\.matsurihi\.me)/mltd/v1/events/(\d+)/rankings/logs/idolPoint/(\d+)/(\d+)";
+
+            // 置換後のURLのパターンを定義します。
+            string replacement = "$1/api/mltd/v2/events/$2/rankings/idolPoint/$3/logs/$4";
+
+            // 正規表現を使ってURLを変換します。
+            string newUrl = Regex.Replace(originalUrl, pattern, replacement);
+
+            return newUrl; // 戻り値
         }
     }
 }
