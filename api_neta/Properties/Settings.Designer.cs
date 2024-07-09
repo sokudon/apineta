@@ -133,7 +133,7 @@ namespace api_neta.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2024/07/09  1:45")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2024/07/10  1:15")]
         public string buiddate {
             get {
                 return ((string)(this["buiddate"]));

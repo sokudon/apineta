@@ -492,7 +492,7 @@ namespace api_neta
             // v2api
             // 
             this.v2api.AutoSize = true;
-            this.v2api.Location = new System.Drawing.Point(465, 14);
+            this.v2api.Location = new System.Drawing.Point(439, 16);
             this.v2api.Name = "v2api";
             this.v2api.Size = new System.Drawing.Size(240, 19);
             this.v2api.TabIndex = 19;

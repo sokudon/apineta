@@ -60,11 +60,15 @@ namespace api_neta
             url2 = Regex.Replace(url2, "\\/(\\d+,)*\\d+$", "/" + rank);
 
             URLPAST.Text = url;
-
             URLNOW.Text = url2;
 
+            if (v2api.Checked)
+            {
+                url = convertapi(url);
+                url2 = convertapi(url2);
+            }
 
-            url+=prettyPrint;
+            url +=prettyPrint;
             url2+= prettyPrint;
 
             string text = "";
@@ -74,6 +78,10 @@ namespace api_neta
                 try
                 {
                     text = wc.DownloadString(url);
+                    if (v2api.Checked)
+                    {
+                        text = Regex.Replace(text, "aggregatedAt", "summaryTime");
+                    }
                     File.WriteAllText(@"tmp.js", text);
                 }
                 catch (WebException exc)
@@ -87,6 +95,10 @@ namespace api_neta
             try
             {
                 text2 = wc.DownloadString(url2);
+                if (v2api.Checked)
+                {
+                    text2 = Regex.Replace(text2, "aggregatedAt", "summaryTime");
+                }
                 File.WriteAllText(@"tmp2.js", text2);
             }
             catch (WebException exc)
@@ -301,6 +313,8 @@ namespace api_neta
                 url2 = Regex.Replace(url2, "\\/\\d+$", "/1,2,3,10,100,1000");
             }
 
+            URLPAST.Text = url;
+            URLNOW.Text = url2;
 
             if (v2api.Checked)
             {
@@ -308,8 +322,6 @@ namespace api_neta
                 url2 = convertapi(url2);
             }
 
-            URLPAST.Text = url;
-            URLNOW.Text = url2;
 
             url += prettyPrint;
             url2 += prettyPrint;
@@ -370,8 +382,11 @@ namespace api_neta
             wc.Encoding = Encoding.UTF8;
             DateTime dt = DateTime.Now;
 
-            string url = URLPAST.Text + prettyPrint;
-            string url2 = URLNOW.Text + prettyPrint;
+            string url = URLPAST.Text;
+            string url2 = URLNOW.Text;
+
+            string turl = "";
+            string turl2 = "";
 
             string idol = (IDOL.SelectedIndex + 1).ToString();
             string rank = RANK.Text;
@@ -390,13 +405,29 @@ namespace api_neta
                 URLPAST.Text = url;
                 URLNOW.Text = url2;
 
+                turl = url;
+                turl2 = url2;
+
+                if (v2api.Checked)
+                {
+                    turl = convertapi(url);
+                    turl2 = convertapi(url2);
+                }
+
+                turl += prettyPrint;
+                turl2 += prettyPrint;
+
                 string text = "";
                 string text2 = "";
                 if (NOWONLY.Checked == false)
                 {
                     try
                     {
-                        text = wc.DownloadString(url);
+                        text = wc.DownloadString(turl); 
+                        if (v2api.Checked)
+                        {
+                            text = Regex.Replace(text, "aggregatedAt", "summaryTime");
+                        }
                         File.WriteAllText(@"tmp.js" + i.ToString(), text);
                     }
                     catch (WebException exc)
@@ -409,7 +440,11 @@ namespace api_neta
 
                 try
                 {
-                    text2 = wc.DownloadString(url2);
+                    text2 = wc.DownloadString(turl2); 
+                    if (v2api.Checked)
+                    {
+                        text2 = Regex.Replace(text2, "aggregatedAt", "summaryTime");
+                    }
                     File.WriteAllText(@"tmp2.js" + i.ToString(), text2);
                 }
                 catch (WebException exc)
