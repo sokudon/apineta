@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="url" Type="System.String" Scope="User">
-      <Value Profile="(Default)">https://api.matsurihi.me/api/mltd/v2/events/339/rankings/eventPoint/logs/</Value>
+      <Value Profile="(Default)">https://api.matsurihi.me/api/mltd/v2/events/357/rankings/eventPoint/logs/</Value>
     </Setting>
     <Setting Name="rank" Type="System.String" Scope="User">
       <Value Profile="(Default)">100,2500,5000,10000,25000,50000</Value>

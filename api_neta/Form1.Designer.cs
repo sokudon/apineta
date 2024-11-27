@@ -69,7 +69,7 @@ namespace api_neta
             this.URL.Name = "URL";
             this.URL.Size = new System.Drawing.Size(677, 22);
             this.URL.TabIndex = 2;
-            this.URL.Text = "https://api.matsurihi.me/api/mltd/v2/events/296/rankings/eventPoint/logs/";
+            this.URL.Text = "https://api.matsurihi.me/api/mltd/v2/events/357/rankings/eventPoint/logs/";
             this.URL.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // TIME
@@ -80,6 +80,7 @@ namespace api_neta
             "17:00",
             "00:00:00",
             "21:00",
+            "21:30",
             "----",
             "00:00:00",
             "01:00",
@@ -133,14 +134,14 @@ namespace api_neta
             this.周年イベントToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(741, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(741, 35);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // 周年イベントToolStripMenuItem
             // 
             this.周年イベントToolStripMenuItem.Name = "周年イベントToolStripMenuItem";
-            this.周年イベントToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
+            this.周年イベントToolStripMenuItem.Size = new System.Drawing.Size(134, 31);
             this.周年イベントToolStripMenuItem.Text = "周年イベント";
             this.周年イベントToolStripMenuItem.Click += new System.EventHandler(this.周年イベントToolStripMenuItem_Click_1);
             // 
