@@ -41,6 +41,8 @@ namespace api_neta
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.ajax = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +59,7 @@ namespace api_neta
             // 
             this.button1.Location = new System.Drawing.Point(534, 105);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(201, 200);
+            this.button1.Size = new System.Drawing.Size(201, 142);
             this.button1.TabIndex = 1;
             this.button1.Text = "ぼだ取得";
             this.button1.UseVisualStyleBackColor = true;
@@ -134,14 +136,14 @@ namespace api_neta
             this.周年イベントToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(741, 35);
+            this.menuStrip1.Size = new System.Drawing.Size(741, 28);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // 周年イベントToolStripMenuItem
             // 
             this.周年イベントToolStripMenuItem.Name = "周年イベントToolStripMenuItem";
-            this.周年イベントToolStripMenuItem.Size = new System.Drawing.Size(134, 31);
+            this.周年イベントToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
             this.周年イベントToolStripMenuItem.Text = "周年イベント";
             this.周年イベントToolStripMenuItem.Click += new System.EventHandler(this.周年イベントToolStripMenuItem_Click_1);
             // 
@@ -204,11 +206,32 @@ namespace api_neta
             this.label4.TabIndex = 11;
             this.label4.Text = "ランク";
             // 
+            // ajax
+            // 
+            this.ajax.Location = new System.Drawing.Point(537, 278);
+            this.ajax.Name = "ajax";
+            this.ajax.Size = new System.Drawing.Size(198, 27);
+            this.ajax.TabIndex = 12;
+            this.ajax.Text = "フォーム送信";
+            this.ajax.UseVisualStyleBackColor = true;
+            this.ajax.Click += new System.EventHandler(this.ajax_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(537, 253);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(192, 22);
+            this.textBox2.TabIndex = 13;
+            this.textBox2.Text = "";
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(741, 317);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.ajax);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -246,6 +269,8 @@ namespace api_neta
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button ajax;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

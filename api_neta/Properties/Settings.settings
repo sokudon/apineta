@@ -31,7 +31,7 @@
       <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="buiddate" Type="System.String" Scope="User">
-      <Value Profile="(Default)">2024/07/10  1:15</Value>
+      <Value Profile="(Default)">2025/02/04</Value>
     </Setting>
     <Setting Name="zure" Type="System.String" Scope="User">
       <Value Profile="(Default)">0</Value>
@@ -44,6 +44,9 @@
     </Setting>
     <Setting Name="usev2" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="api_goog" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

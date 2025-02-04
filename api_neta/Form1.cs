@@ -10,9 +10,28 @@ using System.Windows.Forms;
 using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using System.Net.Http;
+using System.Text;
+using System;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Security.Policy;
+using System.Web;
 
 namespace api_neta
 {
+    static class Program
+    {
+        [STAThread]
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1()); // フォームの起動
+        }
+    }
+
     public partial class Form1 : Form
     {
         public Form1()
@@ -111,7 +130,6 @@ namespace api_neta
                 sb.Append(finaldata.Replace("T", " ").Replace("-", "/") + "\r\n");
             }
 
-            Properties.Settings.Default.url = URL.Text;
             textBox1.Text = sb.ToString();
 
         }
@@ -119,7 +137,7 @@ namespace api_neta
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
-            Properties.Settings.Default.url = URL.Text;
+            Properties.Settings.Default.url =URL.Text;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -132,7 +150,7 @@ namespace api_neta
            this.Text = "api_neta buid:" + Properties.Settings.Default.buiddate;
            URL.Text = Properties.Settings.Default.url;
            RANK.Text=Properties.Settings.Default.rank ;
-           TIME.Text=Properties.Settings.Default.time ;
+           TIME.Text=Properties.Settings.Default.time;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -157,9 +175,49 @@ namespace api_neta
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
 
-            Properties.Settings.Default.url = this.URL.Text;
-            Properties.Settings.Default.rank = this.RANK.Text;
-            Properties.Settings.Default.time = this.TIME.Text;
+        }
+
+        private void ajax_Click(object sender, EventArgs e)
+        {
+            string baseUrl = this.textBox2.Text;
+            string text = textBox1.Text;
+
+            string encodedText = HttpUtility.UrlEncode(text); // URLエンコー
+
+            string requestUrl = $"{baseUrl}?text={encodedText}";
+            Main(requestUrl);
+
+        }
+
+
+        static async Task Main(string url)
+        {
+
+            string requestUrl = url;
+
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.GetAsync(requestUrl);
+                if (response.IsSuccessStatusCode)
+                {
+                    string result = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show($"Response: {result}");
+                }
+                else
+                {
+                    MessageBox.Show($"Error: {response.StatusCode}");
+                }
+            }
+        }
+
+
+
+
+
+        private void textBox2_TextChanged_1(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.api_goog=textBox2.Text;
         }
     }
+
 }
