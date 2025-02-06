@@ -25,7 +25,7 @@ namespace api_neta.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://api.matsurihi.me/api/mltd/v2/events/357/rankings/eventPoint/logs/")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://api.matsurihi.me/api/mltd/v2/events/367/rankings/eventPoint/logs/")]
         public string url {
             get {
                 return ((string)(this["url"]));
