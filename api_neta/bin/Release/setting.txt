@@ -1,0 +1,2 @@
+﻿https://api.matsurihi.me/api/mltd/v2/events/382/rankings/eventPoint/logs/
+https://script.google.com/macros/s/AKfycbyIq__uYjV4olRe1YV3p6dfmHz8rcQ4TdACBfsRDAmFvUbNCAOic50fRb7ca85-Y0wt/exec
