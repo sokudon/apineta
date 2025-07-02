@@ -25,20 +25,70 @@ namespace api_neta
 
         string prettyPrint = "?prettyPrint=false";
 
-        private void Form5_Load(object sender, EventArgs e)
+
+        [DllImport("kernel32")]
+        private static extern long WritePrivateProfileString(string Section, string Key, string Value, string FilePath);
+
+        [DllImport("kernel32")]
+        private static extern int GetPrivateProfileString(string Section, string Key, string Default, StringBuilder RetVal, int Size, string FilePath);
+
+        // Path to your INI file
+        private string iniFilePath = Path.Combine(Application.StartupPath, "settings.ini");
+
+        private string ReadIni(string section, string key, string defaultValue)
         {
-            this.RANK.Text = Properties.Settings.Default.rank2;
-            this.IDOL.Text = Properties.Settings.Default.idol;
-            this.NOWONLY.Checked = Properties.Settings.Default.genzai;
-            this.URLPAST.Text = Properties.Settings.Default.url2;
-            this.URLNOW.Text = Properties.Settings.Default.url3;
-            this.TIME.Text = Properties.Settings.Default.timeset;
-            this.datediff.Text = Properties.Settings.Default.datediff;
-            this.dates.Text = Properties.Settings.Default.date;
-            this.zure2.Text = Properties.Settings.Default.zure;
-            this.v2api.Checked = Properties.Settings.Default.usev2;
+            StringBuilder sb = new StringBuilder(255);
+            GetPrivateProfileString(section, key, defaultValue, sb, 255, iniFilePath);
+            return sb.ToString();
         }
 
+        private void WriteIni(string section, string key, string value)
+        {
+            WritePrivateProfileString(section, key, value, iniFilePath);
+        }
+
+        //private void Form5_Load(object sender, EventArgs e)
+        //{
+        //    this.RANK.Text = Properties.Settings.Default.rank2;
+        //    this.IDOL.Text = Properties.Settings.Default.idol;
+        //    this.NOWONLY.Checked = Properties.Settings.Default.genzai;
+        //    this.URLPAST.Text = Properties.Settings.Default.url2;
+        //    this.URLNOW.Text = Properties.Settings.Default.url3;
+        //    this.TIME.Text = Properties.Settings.Default.timeset;
+        //    this.datediff.Text = Properties.Settings.Default.datediff;
+        //    this.dates.Text = Properties.Settings.Default.date;
+        //    this.zure2.Text = Properties.Settings.Default.zure;
+        //    this.v2api.Checked = Properties.Settings.Default.usev2;
+        //}
+
+        private void Form5_Load(object sender, EventArgs e)
+        {
+            LoadIniSettings(); // Call the new method to load settings
+        }
+
+        private void LoadIniSettings()
+        {
+            this.RANK.Text = ReadIni("Settings", "Rank", "");
+            this.IDOL.Text = ReadIni("Settings", "Idol", "");
+            this.NOWONLY.Checked = bool.Parse(ReadIni("Settings", "NowOnly", "False"));
+            this.URLPAST.Text = ReadIni("Settings", "UrlPast", "");
+            this.URLNOW.Text = ReadIni("Settings", "UrlNow", "");
+            this.TIME.Text = ReadIni("Settings", "Time", "----");
+            this.datediff.Text = ReadIni("Settings", "DateDiff", "----");
+            this.dates.Text = ReadIni("Settings", "Dates", "----");
+            this.zure2.Text = ReadIni("Settings", "Zure", "");
+            this.v2api.Checked = bool.Parse(ReadIni("Settings", "UseV2Api", "False"));
+
+
+            if(this.URLPAST.Text == ""){
+
+                this.URLPAST.Text = Properties.Settings.Default.url2;
+            }
+            if (this.URLNOW.Text == "")
+            {
+                this.URLNOW.Text = Properties.Settings.Default.url3;
+            }
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -268,15 +318,6 @@ namespace api_neta
                     label7.Text = "--";
                 }
             }
-
-
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            Properties.Settings.Default.rank2 = this.RANK.Text;
         }
 
 
@@ -565,58 +606,120 @@ namespace api_neta
 
             File.WriteAllText(@"alldata" + RANK.Text + ".txt", str2);
         }
+        
+        
+        //private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+
+        //    Properties.Settings.Default.rank2 = this.RANK.Text;
+        //}
+        //private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        //{
+
+        //    Properties.Settings.Default.genzai = this.NOWONLY.Checked;
+        //}
+
+        //private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+
+        //    Properties.Settings.Default.timeset = TIME.Text;
+        //}
+
+        //private void textBox2_TextChanged(object sender, EventArgs e)
+        //{
+
+        //    Properties.Settings.Default.url3 = this.URLNOW.Text;
+        //}
+
+
+        //private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+
+        //    Properties.Settings.Default.idol = this.IDOL.Text;
+        //}
+
+        //private void textBox1_TextChanged(object sender, EventArgs e)
+        //{
+
+        //    Properties.Settings.Default.url2 = this.URLPAST.Text;
+        //}
+
+        //private void zure2_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+
+        //    Properties.Settings.Default.zure = this.zure2.Text;
+        //}
+
+        //private void dates_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+
+
+        //    Properties.Settings.Default.date = this.dates.Text;
+        //}
+
+        //private void datediff_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+
+        //    Properties.Settings.Default.datediff = this.datediff.Text;
+        //}
+
+
+
+        //private void v2api_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (v2api.Checked)
+        //    {
+        //        prettyPrint = "?prettyPrint=false&all=true";
+        //    }
+        //    else {
+        //        prettyPrint = "?prettyPrint=false";
+        //    }
+        //}
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            WriteIni("Settings", "Rank", this.RANK.Text);
+        }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-
-            Properties.Settings.Default.genzai = this.NOWONLY.Checked;
+            WriteIni("Settings", "NowOnly", this.NOWONLY.Checked.ToString());
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            Properties.Settings.Default.timeset = TIME.Text;
+            WriteIni("Settings", "Time", this.TIME.Text);
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-
-            Properties.Settings.Default.url3 = this.URLNOW.Text;
+            WriteIni("Settings", "UrlNow", this.URLNOW.Text);
         }
-
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            Properties.Settings.Default.idol = this.IDOL.Text;
+            WriteIni("Settings", "Idol", this.IDOL.Text);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
-            Properties.Settings.Default.url2 = this.URLPAST.Text;
+            WriteIni("Settings", "UrlPast", this.URLPAST.Text);
         }
 
         private void zure2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            Properties.Settings.Default.zure = this.zure2.Text;
+            WriteIni("Settings", "Zure", this.zure2.Text);
         }
 
         private void dates_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-
-            Properties.Settings.Default.date = this.dates.Text;
+            WriteIni("Settings", "Dates", this.dates.Text);
         }
 
         private void datediff_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            Properties.Settings.Default.datediff = this.datediff.Text;
+            WriteIni("Settings", "DateDiff", this.datediff.Text);
         }
-
-    
 
         private void v2api_CheckedChanged(object sender, EventArgs e)
         {
@@ -624,9 +727,11 @@ namespace api_neta
             {
                 prettyPrint = "?prettyPrint=false&all=true";
             }
-            else {
+            else
+            {
                 prettyPrint = "?prettyPrint=false";
             }
+            WriteIni("Settings", "UseV2Api", this.v2api.Checked.ToString());
         }
 
         static string convertapi(string originalUrl)
